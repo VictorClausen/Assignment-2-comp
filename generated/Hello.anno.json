@@ -1,0 +1,38 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Hello|Hello>io_testerDataMemDataRead",
+    "sources":[
+      "~Hello|Hello>io_testerDataMemEnable",
+      "~Hello|Hello>io_testerDataMemWriteEnable",
+      "~Hello|Hello>io_testerDataMemDataWrite",
+      "~Hello|Hello>io_testerDataMemAddress"
+    ]
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.options.TargetDirAnnotation",
+    "directory":"generated"
+  },
+  {
+    "class":"firrtl.stage.phases.DriverCompatibility$TopNameAnnotation",
+    "topName":"Hello"
+  },
+  {
+    "class":"firrtl.options.OutputAnnotationFileAnnotation",
+    "file":"Hello"
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"generated"
+  }
+]

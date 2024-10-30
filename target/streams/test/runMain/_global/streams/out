@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0mfirrtl.passes.CheckInitialization$RefNotInitializedException:  : [module ProgramCounter]  Reference io is not fully initialized.[0m
+[0m[[0m[31merror[0m] [0m[0m   : io.programCounter <= VOID[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mrunMain[0m) firrtl.passes.CheckInitialization$RefNotInitializedException:  : [module ProgramCounter]  Reference io is not fully initialized.[0m
+[0m[[0m[31merror[0m] [0m[0m   : io.programCounter <= VOID[0m

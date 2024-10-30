@@ -1,0 +1,94 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""C:\Users\victor\AppData\Local\Temp\idea.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""C:\Users\victor\AppData\Local\Temp\idea.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.10.1 (Oracle Corporation Java 21.0.2)
+[debug] Load.defaultLoad until apply took 256.7071ms
+[debug]           Load.loadUnit: plugins took 280.1295ms
+[debug]           Load.loadUnit: defsScala took 0.6394ms
+[debug] [Loading] Scanning directory C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\project
+[debug]             Load.loadUnit: mkEval took 21.0287ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 29.6562 ms
+[info] loading settings for project codea2-build from idea.sbt ...
+[debug]               Load.resolveProject(codea2-build) took 83.3196ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id codea2-build, base: C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\project, plugins: List(<none>))) took 128.1598ms
+[debug] [Loading] Done in C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\project, returning: (codea2-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 11113.5902ms
+[debug]           Load.loadUnit: cleanEvalClasses took 20.4784ms
+[debug]         Load.loadUnit(file:/C:/Users/victor/OneDrive/Skrivebord/3.%20semester/Computer%20systems/Assignment%202/codeA2/codeA2/project/, ...) took 11431.3709ms
+[debug]       Load.apply: load took 11690.6855ms
+[debug]       Load.apply: resolveProjects took 10.7537ms
+[debug]       Load.apply: finalTransforms took 131.5381ms
+[debug]       Load.apply: config.delegates took 18.6681ms
+[debug]       Load.apply: Def.make(settings)... took 916.5166ms
+[debug]       Load.apply: structureIndex took 219.8852ms
+[debug]       Load.apply: mkStreams took 6.7235ms
+[info] loading project definition from C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 16695.9366ms
+[debug]     Load.loadUnit: defsScala took 0.0091ms
+[debug] [Loading] Scanning directory C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2
+[debug]       Load.loadUnit: mkEval took 8.2778ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 4.408 ms
+[info] loading settings for project codea2 from build.sbt ...
+[debug]         Load.resolveProject(codea2) took 70.4313ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id codea2, base: C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2, plugins: List(<none>))) took 76.0794ms
+[debug] [Loading] Done in C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2, returning: (codea2)
+[debug]     Load.loadUnit: loadedProjectsRaw took 6167.5325ms
+[debug]     Load.loadUnit: cleanEvalClasses took 72.3462ms
+[debug]   Load.loadUnit(file:/C:/Users/victor/OneDrive/Skrivebord/3.%20semester/Computer%20systems/Assignment%202/codeA2/codeA2/, ...) took 22941.2082ms
+[debug] Load.apply: load took 23007.1675ms
+[debug] Load.apply: resolveProjects took 0.2657ms
+[debug] Load.apply: finalTransforms took 44.6325ms
+[debug] Load.apply: config.delegates took 1.0702ms
+[debug] Load.apply: Def.make(settings)... took 189.2218ms
+[debug] Load.apply: structureIndex took 87.8785ms
+[debug] Load.apply: mkStreams took 0.007ms
+[info] set current project to codea2 (in build file:/C:/Users/victor/OneDrive/Skrivebord/3.%20semester/Computer%20systems/Assignment%202/codeA2/codeA2/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(idea-shell, None, None)

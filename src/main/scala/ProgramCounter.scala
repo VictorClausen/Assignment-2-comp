@@ -10,21 +10,19 @@ class ProgramCounter extends Module {
     val programCounter = Output(UInt(16.W))
   })
 
-    // Initialize the program counter register
-    val pc = RegInit(0.U(16.W))
+  val PCreg: UInt = RegInit(0.U(16.W))
 
-    // Incremented program counter value
-    val pcNext = pc + 1.U
+  val stopRunLogicGate: Bool = WireDefault(false.B)
+  stopRunLogicGate := io.stop | ~io.run //the OR gate at the bottom of the diagram
 
-    // First multiplexer: select between incremented pc or programCounterJump
-    val nextPc = Mux(io.jump, io.programCounterJump, pcNext)
+  //All the basic logic for the diagram/table of figure 12
+  when (stopRunLogicGate){
+    PCreg := PCreg
+  }.elsewhen(io.jump){
+    PCreg := io.programCounterJump
+  }.otherwise{
+    PCreg := PCreg+1.U
+  }
 
-    // NOT gate for stop, then OR gate for control (whether to update the counter)
-    val enableUpdate = io.run || !io.stop
-
-    // Second multiplexer: update program counter if enableUpdate is true, otherwise hold the current value
-    pc := Mux(enableUpdate, nextPc, pc)
-
-    // Output the current program counter value
-    io.programCounter := pc
+  io.programCounter := PCreg
 }

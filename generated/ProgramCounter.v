@@ -10,11 +10,11 @@ module ProgramCounter(
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  reg [15:0] pc; // @[ProgramCounter.scala 14:21]
-  wire [15:0] pcNext = pc + 16'h1; // @[ProgramCounter.scala 17:21]
-  wire  _T_1 = ~io_stop; // @[ProgramCounter.scala 23:34]
-  wire  enableUpdate = io_run | _T_1; // @[ProgramCounter.scala 23:31]
-  assign io_programCounter = pc; // @[ProgramCounter.scala 29:23]
+  reg [15:0] PCreg; // @[ProgramCounter.scala 13:28]
+  wire  _T = ~io_run; // @[ProgramCounter.scala 16:33]
+  wire  stopRunLogicGate = io_stop | _T; // @[ProgramCounter.scala 16:31]
+  wire [15:0] _T_3 = PCreg + 16'h1; // @[ProgramCounter.scala 24:19]
+  assign io_programCounter = PCreg; // @[ProgramCounter.scala 27:21]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
@@ -51,7 +51,7 @@ initial begin
     `endif
 `ifdef RANDOMIZE_REG_INIT
   _RAND_0 = {1{`RANDOM}};
-  pc = _RAND_0[15:0];
+  PCreg = _RAND_0[15:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
@@ -61,12 +61,12 @@ end // initial
 `endif // SYNTHESIS
   always @(posedge clock) begin
     if (reset) begin
-      pc <= 16'h0;
-    end else if (enableUpdate) begin
+      PCreg <= 16'h0;
+    end else if (!(stopRunLogicGate)) begin
       if (io_jump) begin
-        pc <= io_programCounterJump;
+        PCreg <= io_programCounterJump;
       end else begin
-        pc <= pcNext;
+        PCreg <= _T_3;
       end
     end
   end

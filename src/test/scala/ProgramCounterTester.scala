@@ -22,7 +22,7 @@ class ProgramCounterTester(dut: ProgramCounter) extends PeekPokeTester(dut) {
   poke(dut.io.run, false)
   poke(dut.io.stop, false)
   poke(dut.io.programCounterJump, 0)
-  step(5)
+  step(10)
 
   //Load the value 30
   poke(dut.io.jump, true)

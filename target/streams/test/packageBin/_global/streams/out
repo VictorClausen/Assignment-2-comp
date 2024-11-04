@@ -1,1 +1,27 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\codea2_2.12-0.1.0-SNAPSHOT-tests.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\codea2_2.12-0.1.0-SNAPSHOT-tests.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ALUTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\ALUTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ALUTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\ALUTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\CPUTopTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\CPUTopTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\HelloTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\HelloTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Images$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\Images$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Images.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\Images.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ProgramCounterTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\ProgramCounterTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ProgramCounterTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\ProgramCounterTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Programs$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\Programs$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Programs.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes\Programs.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

@@ -4,7 +4,6 @@ import chisel3.iotesters.PeekPokeTester
 class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   // Test ADDI instruction
   poke(dut.io.opcode, "b000001".U)
-  step(1)
   expect(dut.io.aluOp, 1.U)
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
@@ -13,10 +12,10 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
   // Test SUBI instruction
   poke(dut.io.opcode, "b000010".U)
-  step(1)
   expect(dut.io.aluOp, 2.U)
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
@@ -25,10 +24,10 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
-  // Test OR instruction
+  // Test OR instruction (dont think we acutally need this one...)
   poke(dut.io.opcode, "b000011".U)
-  step(1)
   expect(dut.io.aluOp, 3.U)
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
@@ -37,10 +36,10 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
-  // Test LI instruction
+  // Test Load Immedeate instruction
   poke(dut.io.opcode, "b000100".U)
-  step(1)
   expect(dut.io.aluOp, 4.U)
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
@@ -49,11 +48,11 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
-  // Test LD instruction
+  // Test Load Instructions instruction
   poke(dut.io.opcode, "b000101".U)
-  step(1)
-  expect(dut.io.aluOp, 0.U) // ALU operation is not relevant for LD
+  expect(dut.io.aluOp, 0.U) // just setting alu=0 because its not neede for load/store
   expect(dut.io.memRead, true.B)
   expect(dut.io.memWrite, false.B)
   expect(dut.io.regWrite, true.B)
@@ -61,11 +60,11 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
-  // Test ST instruction
+  // Test Store Data instruction
   poke(dut.io.opcode, "b000110".U)
-  step(1)
-  expect(dut.io.aluOp, 0.U) // ALU operation is not relevant for ST
+  expect(dut.io.aluOp, 0.U) // just setting alu=0 because its not neede for load/store
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, true.B)
   expect(dut.io.regWrite, false.B)
@@ -73,11 +72,11 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
   // Test JMP instruction
   poke(dut.io.opcode, "b000111".U)
-  step(1)
-  expect(dut.io.aluOp, 0.U) // ALU operation is not relevant for JMP
+  expect(dut.io.aluOp, 0.U) // just setting alu=0 because its not neede for jump/jeq/end
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
   expect(dut.io.regWrite, false.B)
@@ -85,11 +84,11 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, true.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, false.B)
+  step(5)
 
   // Test JEQ instruction
   poke(dut.io.opcode, "b001000".U)
-  step(1)
-  expect(dut.io.aluOp, 0.U) // ALU operation is not relevant for JEQ
+  expect(dut.io.aluOp, 0.U) // just setting alu=0 because its not neede for jump/jeq/end
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
   expect(dut.io.regWrite, false.B)
@@ -97,11 +96,11 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, true.B)
   expect(dut.io.end, false.B)
+  step(5)
 
   // Test END instruction
   poke(dut.io.opcode, "b001001".U)
-  step(1)
-  expect(dut.io.aluOp, 0.U) // ALU operation is not relevant for END
+  expect(dut.io.aluOp, 0.U) // just setting alu=0 because its not neede for jump/jeq/end
   expect(dut.io.memRead, false.B)
   expect(dut.io.memWrite, false.B)
   expect(dut.io.regWrite, false.B)
@@ -109,6 +108,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.jump, false.B)
   expect(dut.io.jumpIfEqual, false.B)
   expect(dut.io.end, true.B)
+  step(5)
 }
 
 object ControlUnitTester {

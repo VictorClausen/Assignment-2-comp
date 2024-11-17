@@ -1,2 +1,11 @@
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes.bak[0m
-[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\victor\OneDrive\Skrivebord\3. semester\Computer systems\Assignment 2\codeA2\codeA2\target\scala-2.12\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\jens\OneDrive - Virum Gymnasium\Skrivebord\projekt_19\Assignment-2-comp\target\scala-2.12\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CPUTopTester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\jens\OneDrive - Virum Gymnasium\Skrivebord\projekt_19\Assignment-2-comp\target\scala-2.12\test-classes.bak[0m

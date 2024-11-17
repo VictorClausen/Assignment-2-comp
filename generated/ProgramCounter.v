@@ -10,11 +10,11 @@ module ProgramCounter(
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  reg [15:0] PCreg; // @[ProgramCounter.scala 13:28]
-  wire  _T = ~io_run; // @[ProgramCounter.scala 16:33]
-  wire  stopRunLogicGate = io_stop | _T; // @[ProgramCounter.scala 16:31]
-  wire [15:0] _T_3 = PCreg + 16'h1; // @[ProgramCounter.scala 24:19]
-  assign io_programCounter = PCreg; // @[ProgramCounter.scala 27:21]
+  reg [15:0] PCreg; // @[ProgramCounter.scala 14:18]
+  wire  _T = ~io_run; // @[ProgramCounter.scala 17:33]
+  wire  stopRunLogicGate = io_stop | _T; // @[ProgramCounter.scala 17:31]
+  wire [15:0] _T_5 = PCreg + 16'h1; // @[ProgramCounter.scala 25:19]
+  assign io_programCounter = PCreg; // @[ProgramCounter.scala 28:21]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
@@ -60,13 +60,11 @@ end // initial
 `endif
 `endif // SYNTHESIS
   always @(posedge clock) begin
-    if (reset) begin
-      PCreg <= 16'h0;
-    end else if (!(stopRunLogicGate)) begin
+    if (!(stopRunLogicGate)) begin
       if (io_jump) begin
         PCreg <= io_programCounterJump;
       end else begin
-        PCreg <= _T_3;
+        PCreg <= _T_5;
       end
     end
   end

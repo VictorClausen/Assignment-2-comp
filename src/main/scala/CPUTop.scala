@@ -33,37 +33,33 @@ class CPUTop extends Module {
   io.done := controlUnit.io.done
   programCounter.io.stop := controlUnit.io.done
 
-  ////////////////////////////////////////////
-  // Continue here with your connections
-  ////////////////////////////////////////////
-
   val jumpAnd = (controlUnit.io.jumpTo & alu.io.output(0))
 
   val jumpResult =
-    Mux(controlUnit.io.immediateJump, controlUnit.io.jumpTo, jumpAnd)
+    Mux(controlUnit.io.ImJump, controlUnit.io.jumpTo, jumpAnd)
   programCounter.io.jump := jumpResult
 
-  alu.io.sel := controlUnit.io.aluFunc
+  alu.io.sel := controlUnit.io.AluOp
   alu.io.input1 := registerFile.io.a
 
-  val immediateOperandMux = Mux(
-    controlUnit.io.immediateOperand,
+  val ImOpMux = Mux(
+    controlUnit.io.ImOp,
     programMemory.io.instructionRead(15, 0),
     registerFile.io.b
   )
-  alu.io.input2 := immediateOperandMux
+  alu.io.input2 := ImOpMux
 
   val immediateLoadMux = Mux(
-    controlUnit.io.loadIMMEDIATE,
+    controlUnit.io.ImLoad,
     programMemory.io.instructionRead(15, 0),
     alu.io.output
   )
-  val loadFromMemoryMux = Mux(
-    controlUnit.io.loadFromMemory,
+  val MemLoadMux = Mux(
+    controlUnit.io.MemLoad,
     dataMemory.io.dataRead,
     immediateLoadMux
   )
-  registerFile.io.writeData := loadFromMemoryMux
+  registerFile.io.writeData := MemLoadMux
 
   controlUnit.io.opcode := programMemory.io.instructionRead(31, 28)
 
@@ -75,11 +71,11 @@ class CPUTop extends Module {
     0
   )
   controlUnit.io.opcode := programMemory.io.instructionRead(31, 28)
-  registerFile.io.writeEnable := controlUnit.io.writeRegister
+  registerFile.io.writeEnable := controlUnit.io.RegWrite
 
   dataMemory.io.dataWrite := registerFile.io.a
   dataMemory.io.address := registerFile.io.b
-  dataMemory.io.writeEnable := controlUnit.io.writeToMemory
+  dataMemory.io.writeEnable := controlUnit.io.MemWrite
 
   // This signals are used by the tester for loading the program to the program memory, do not touch
   programMemory.io.testerAddress := io.testerProgMemAddress

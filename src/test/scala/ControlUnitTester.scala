@@ -2,187 +2,105 @@ import chisel3._
 import chisel3.iotesters.PeekPokeTester
 
 class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
-  // Test Add
-  poke(dut.io.opcode, 1.U(4.W)) // ADD
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 0.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test ADD
+  poke(dut.io.opcode, 1)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 0)
+  expect(dut.io.ImOp, false)
 
-  poke(dut.io.opcode, 2.U(4.W)) // SUB
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 1.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test SUB
+  poke(dut.io.opcode, 2)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 1)
+  expect(dut.io.ImOp, false)
 
-  poke(dut.io.opcode, 3.U(4.W)) // ADDI
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 0.U(3.W))
-  expect(dut.io.immediateOperand, true.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test ADDI
+  poke(dut.io.opcode, 3)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 0)
+  expect(dut.io.ImOp, true)
 
-  poke(dut.io.opcode, 4.U(4.W)) // SUBI
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 1.U(3.W))
-  expect(dut.io.immediateOperand, true.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test SUBI
+  poke(dut.io.opcode, 4)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 1)
+  expect(dut.io.ImOp, true)
 
-  poke(dut.io.opcode, 5.U(4.W)) // MULT
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 5.U(3.W))
-  expect(dut.io.immediateOperand, true.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test MULT
+  poke(dut.io.opcode, 5)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 5)
+  expect(dut.io.ImOp, true)
 
-  poke(dut.io.opcode, 6.U(4.W)) // OR
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 2.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test OR
+  poke(dut.io.opcode, 6)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 2)
+  expect(dut.io.ImOp, false)
 
-  poke(dut.io.opcode, 7.U(4.W)) // AND
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 3.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test AND
+  poke(dut.io.opcode, 7)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 4)
+  expect(dut.io.ImOp, false)
 
-  poke(dut.io.opcode, 8.U(4.W)) // LOADI
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.loadIMMEDIATE, true.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test LOADI
+  poke(dut.io.opcode, 8)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.ImLoad, true)
 
-  poke(dut.io.opcode, 9.U(4.W)) // LOAD
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, true.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test LOAD
+  poke(dut.io.opcode, 9)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.MemLoad, true)
 
-  poke(dut.io.opcode, 10.U(4.W)) // STORE
-  expect(dut.io.writeRegister, false.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, true.B)
+  // Test STORE
+  poke(dut.io.opcode, 10)
   step(1)
+  expect(dut.io.MemWrite, true)
 
-  poke(dut.io.opcode, 11.U(4.W)) // INC
-  expect(dut.io.writeRegister, true.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 6.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test INC
+  poke(dut.io.opcode, 11)
   step(1)
+  expect(dut.io.RegWrite, true)
+  expect(dut.io.AluOp, 6)
 
-  poke(dut.io.opcode, 12.U(4.W)) // JMP
-  expect(dut.io.writeRegister, false.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, true.B)
-  expect(dut.io.jumpTo, true.B)
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test JMP
+  poke(dut.io.opcode, 12)
   step(1)
+  expect(dut.io.jumpTo, true)
+  expect(dut.io.ImJump, true)
 
-  poke(dut.io.opcode, 13.U(4.W)) // JEQ
-  expect(dut.io.writeRegister, false.B)
-  expect(dut.io.done, false.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, true.B)
-  expect(dut.io.aluFunc, 4.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test JEQ
+  poke(dut.io.opcode, 13)
   step(1)
+  expect(dut.io.jumpTo, true)
+  expect(dut.io.AluOp, 7)
 
-  poke(dut.io.opcode, 15.U(4.W)) // END
-  expect(dut.io.writeRegister, false.B)
-  expect(dut.io.done, true.B)
-  expect(dut.io.immediateJump, false.B)
-  expect(dut.io.jumpTo, false.B)
-  expect(dut.io.aluFunc, 0.U(3.W))
-  expect(dut.io.immediateOperand, false.B)
-  expect(dut.io.loadIMMEDIATE, false.B)
-  expect(dut.io.loadFromMemory, false.B)
-  expect(dut.io.writeToMemory, false.B)
+  // Test END
+  poke(dut.io.opcode, 14)
   step(1)
-
+  expect(dut.io.done, true)
 }
 
 object ControlUnitTester {
   def main(args: Array[String]): Unit = {
-    println("Testing Control Unit")
+    println("Testing the Control Unit / Tester Control Unit'en")
     iotesters.Driver.execute(
-      Array(
-        "--generate-vcd-output",
-        "on",
-        "--target-dir",
-        "generated",
-        "--top-name",
-        "ControlUnit"
-      ),
-      () => new ControlUnit()
-    ) { c =>
-      new ControlUnitTester(c)
+      Array("--generate-vcd-output", "on",
+        "--target-dir", "generated",
+        "--top-name", "ControlUnit"),
+      () => new ControlUnit()) {
+      c => new ControlUnitTester(c)
     }
   }
 }

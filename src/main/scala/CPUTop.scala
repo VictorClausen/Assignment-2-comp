@@ -30,40 +30,56 @@ class CPUTop extends Module {
   // Connecting the modules
   programCounter.io.run := io.run
   programMemory.io.address := programCounter.io.programCounter
+  io.done := controlUnit.io.stop
+  programCounter.io.stop := controlUnit.io.stop
 
-  // Fetch instruction from program memory
-  val instruction = programMemory.io.instructionRead
+  ////////////////////////////////////////////
+  // Continue here with your connections
+  ////////////////////////////////////////////
 
-  // Decode instruction
-  controlUnit.io.opcode := instruction(31, 26)
+  val jumpAnd = (controlUnit.io.jump & alu.io.output(0))
 
-  // Register file connections
-  registerFile.io.aSel := instruction(25, 21)
-  registerFile.io.bSel := instruction(20, 16)
-  registerFile.io.writeSel := instruction(15, 11)
-  registerFile.io.writeEnable := controlUnit.io.regWrite
+  val jumpResult =
+    Mux(controlUnit.io.immediateJump, controlUnit.io.jump, jumpAnd)
+  programCounter.io.jump := jumpResult
 
-  // Introduce a register to break the combinational loop
-  val dataReadReg = RegNext(dataMemory.io.dataRead)
-  registerFile.io.writeData := Mux(controlUnit.io.memRead, dataReadReg, alu.io.output)
-
-  // ALU connections
+  alu.io.sel := controlUnit.io.aluFunc
   alu.io.input1 := registerFile.io.a
-  alu.io.input2 := Mux(controlUnit.io.aluSrc, instruction(15, 0).asUInt, registerFile.io.b)
-  alu.io.sel := controlUnit.io.aluOp
 
-  // Data memory connections
-  dataMemory.io.address := alu.io.output
-  dataMemory.io.dataWrite := registerFile.io.b
-  dataMemory.io.writeEnable := controlUnit.io.memWrite
+  val immediateOperandMux = Mux(
+    controlUnit.io.immediateOperand,
+    programMemory.io.instructionRead(15, 0),
+    registerFile.io.b
+  )
+  alu.io.input2 := immediateOperandMux
 
-  // Program counter connections
-  programCounter.io.stop := controlUnit.io.end
-  programCounter.io.jump := controlUnit.io.jump
-  programCounter.io.programCounterJump := instruction(15, 0).asUInt
+  val immediateLoadMux = Mux(
+    controlUnit.io.immediateLoad,
+    programMemory.io.instructionRead(15, 0),
+    alu.io.output
+  )
+  val loadFromMemoryMux = Mux(
+    controlUnit.io.loadFromMemory,
+    dataMemory.io.dataRead,
+    immediateLoadMux
+  )
+  registerFile.io.writeData := loadFromMemoryMux
 
-  // Done signal
-  io.done := controlUnit.io.end
+  controlUnit.io.opcode := programMemory.io.instructionRead(31, 28)
+
+  registerFile.io.aSel := programMemory.io.instructionRead(23, 20)
+  registerFile.io.bSel := programMemory.io.instructionRead(19, 16)
+  registerFile.io.writeSel := programMemory.io.instructionRead(27, 24)
+  programCounter.io.programCounterJump := programMemory.io.instructionRead(
+    15,
+    0
+  )
+  controlUnit.io.opcode := programMemory.io.instructionRead(31, 28)
+  registerFile.io.writeEnable := controlUnit.io.writeRegister
+
+  dataMemory.io.dataWrite := registerFile.io.a
+  dataMemory.io.address := registerFile.io.b
+  dataMemory.io.writeEnable := controlUnit.io.writeToMemory
 
   // This signals are used by the tester for loading the program to the program memory, do not touch
   programMemory.io.testerAddress := io.testerProgMemAddress
@@ -71,7 +87,6 @@ class CPUTop extends Module {
   programMemory.io.testerDataWrite := io.testerProgMemDataWrite
   programMemory.io.testerEnable := io.testerProgMemEnable
   programMemory.io.testerWriteEnable := io.testerProgMemWriteEnable
-
   // This signals are used by the tester for loading and dumping the data memory content, do not touch
   dataMemory.io.testerAddress := io.testerDataMemAddress
   io.testerDataMemDataRead := dataMemory.io.testerDataRead

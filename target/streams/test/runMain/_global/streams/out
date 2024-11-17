@@ -1,32 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mfirrtl.transforms.CheckCombLoops$CombLoopException: : [module CPUTop] Combinational loop detected:[0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.io_a[0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu.io_input1	 @[CPUTop.scala 51:17][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu._T_1	 @[ALU.scala 18:38][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu._T_2	 @[ALU.scala 18:38][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu._GEN_8	 @[Conditional.scala 40:58][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu.io_output	 @[ALU.scala 14:13 ALU.scala 18:25 ALU.scala 19:25 ALU.scala 20:25 ALU.scala 21:25][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop._T_4	 @[CPUTop.scala 48:35][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.io_writeData	 @[CPUTop.scala 48:29][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._registers_io_writeSel	 @[RegisterFile.scala 28:27][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._GEN_31	 @[RegisterFile.scala 28:27][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._GEN_63	 @[RegisterFile.scala 27:23][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.registers_31	 @[RegisterFile.scala 25:37 RegisterFile.scala 28:27][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._GEN_95	 @[RegisterFile.scala 30:8][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._registers_io_aSel	 @[RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.io_a	 @[RegisterFile.scala 17:7 RegisterFile.scala 30:8][0m
-[0m[[0m[31merror[0m] [0m[0m(Test / [31mrunMain[0m) firrtl.transforms.CheckCombLoops$CombLoopException: : [module CPUTop] Combinational loop detected:[0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.io_a[0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu.io_input1	 @[CPUTop.scala 51:17][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu._T_1	 @[ALU.scala 18:38][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu._T_2	 @[ALU.scala 18:38][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu._GEN_8	 @[Conditional.scala 40:58][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.alu.io_output	 @[ALU.scala 14:13 ALU.scala 18:25 ALU.scala 19:25 ALU.scala 20:25 ALU.scala 21:25][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop._T_4	 @[CPUTop.scala 48:35][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.io_writeData	 @[CPUTop.scala 48:29][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._registers_io_writeSel	 @[RegisterFile.scala 28:27][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._GEN_31	 @[RegisterFile.scala 28:27][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._GEN_63	 @[RegisterFile.scala 27:23][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.registers_31	 @[RegisterFile.scala 25:37 RegisterFile.scala 28:27][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._GEN_95	 @[RegisterFile.scala 30:8][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile._registers_io_aSel	 @[RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8 RegisterFile.scala 30:8][0m
-[0m[[0m[31merror[0m] [0m[0mCPUTop.registerFile.io_a	 @[RegisterFile.scala 17:7 RegisterFile.scala 30:8][0m
+[0m[[0m[31merror[0m] [0m[0mfirrtl.passes.CheckInitialization$RefNotInitializedException:  : [module ALU]  Reference io is not fully initialized.[0m
+[0m[[0m[31merror[0m] [0m[0m   @[ALU.scala 19:25 ALU.scala 20:25 ALU.scala 21:25 ALU.scala 22:25] : io.output <= mux(_T, _T_2, mux(_T_3, _T_5, mux(_T_6, _T_7, mux(_T_8, io.input1, VOID)))) @[ALU.scala 19:25 ALU.scala 20:25 ALU.scala 21:25 ALU.scala 22:25][0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mrunMain[0m) firrtl.passes.CheckInitialization$RefNotInitializedException:  : [module ALU]  Reference io is not fully initialized.[0m
+[0m[[0m[31merror[0m] [0m[0m   @[ALU.scala 19:25 ALU.scala 20:25 ALU.scala 21:25 ALU.scala 22:25] : io.output <= mux(_T, _T_2, mux(_T_3, _T_5, mux(_T_6, _T_7, mux(_T_8, io.input1, VOID)))) @[ALU.scala 19:25 ALU.scala 20:25 ALU.scala 21:25 ALU.scala 22:25][0m

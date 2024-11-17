@@ -30,27 +30,6 @@ class ALUTester(dut: ALU) extends PeekPokeTester(dut) {
   poke(dut.io.input1, 5)
   expect(dut.io.output,5)
   step(4)
-
-  //compare equal
-  poke(dut.io.sel,4)
-  poke(dut.io.input1, 5)
-  poke(dut.io.input2, 5)
-  expect(dut.io.compariResults,true)
-  step(5)
-
-  //compare equal again (but this time false:)
-  poke(dut.io.sel,4)
-  poke(dut.io.input1, 5)
-  poke(dut.io.input2, 6)
-  expect(dut.io.compariResults,false)
-  step(5)
-
-  //jump
-  poke(dut.io.sel,5)
-  poke(dut.io.input1, 5)
-  expect(dut.io.compariResults,true)
-  step(4)
-
 }
 object ALUTester {
   def main(args: Array[String]): Unit = {

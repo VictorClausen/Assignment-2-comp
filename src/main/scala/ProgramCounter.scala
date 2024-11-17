@@ -10,18 +10,19 @@ class ProgramCounter extends Module {
     val programCounter = Output(UInt(16.W))
   })
 
-  val PCreg: UInt = RegInit(0.U(16.W))
+  //val PCreg: UInt = RegInit(0.U(16.W))
+  val PCreg = Reg(UInt(16.W))
 
   val stopRunLogicGate: Bool = WireDefault(false.B)
   stopRunLogicGate := io.stop | ~io.run //the OR gate at the bottom of the diagram
 
   //All the basic logic for the diagram/table of figure 12
-  when (stopRunLogicGate){
+  when (io.stop | ~io.run) {
     PCreg := PCreg
   }.elsewhen(io.jump){
     PCreg := io.programCounterJump
   }.otherwise{
-    PCreg := PCreg+1.U
+    PCreg := PCreg+1.U(16.W)
   }
 
   io.programCounter := PCreg

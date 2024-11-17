@@ -30,17 +30,17 @@ class CPUTop extends Module {
   // Connecting the modules
   programCounter.io.run := io.run
   programMemory.io.address := programCounter.io.programCounter
-  io.done := controlUnit.io.stop
-  programCounter.io.stop := controlUnit.io.stop
+  io.done := controlUnit.io.done
+  programCounter.io.stop := controlUnit.io.done
 
   ////////////////////////////////////////////
   // Continue here with your connections
   ////////////////////////////////////////////
 
-  val jumpAnd = (controlUnit.io.jump & alu.io.output(0))
+  val jumpAnd = (controlUnit.io.jumpTo & alu.io.output(0))
 
   val jumpResult =
-    Mux(controlUnit.io.immediateJump, controlUnit.io.jump, jumpAnd)
+    Mux(controlUnit.io.immediateJump, controlUnit.io.jumpTo, jumpAnd)
   programCounter.io.jump := jumpResult
 
   alu.io.sel := controlUnit.io.aluFunc
@@ -54,7 +54,7 @@ class CPUTop extends Module {
   alu.io.input2 := immediateOperandMux
 
   val immediateLoadMux = Mux(
-    controlUnit.io.immediateLoad,
+    controlUnit.io.loadIMMEDIATE,
     programMemory.io.instructionRead(15, 0),
     alu.io.output
   )

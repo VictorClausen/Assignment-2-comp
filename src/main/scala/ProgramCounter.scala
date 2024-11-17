@@ -15,15 +15,16 @@ class ProgramCounter extends Module {
 
   val stopRunLogicGate: Bool = WireDefault(false.B)
   stopRunLogicGate := io.stop | ~io.run //the OR gate at the bottom of the diagram
+  //Denne burde virker, men fik et lille problem med CPUtop, så jeg har kommenteret det ud.
+  //Vil lige tjekke igen.
 
   //All the basic logic for the diagram/table of figure 12
-  when (io.stop | ~io.run) {
-    PCreg := PCreg
+  when(io.stop| ~io.run) {
+    PCreg:=PCreg
   }.elsewhen(io.jump){
-    PCreg := io.programCounterJump
+    PCreg:= io.programCounterJump
   }.otherwise{
-    PCreg := PCreg+1.U(16.W)
+    PCreg :=PCreg+1.U(16.W)
   }
-
-  io.programCounter := PCreg
+  io.programCounter := PCreg //end initiolization of PCreg
 }
